@@ -4,6 +4,31 @@
 	<title>Form</title>
 </head>
 <body>
-
+<h1>Contoh Form</h1>
+<form method="post" action="">
+	<label>Nama:</label>
+	<input type="text" name="nama" width="100">
+	<br><br>
+	<label>Jenis Kelamin:</label>
+	<input type="radio" name="kelamin" value="L"> Pria
+	<input type="radio" name="kelamin" value="P"> Wanita
+	<br><br>
+	<label>Kesukaan:</label>
+	<input type="checkbox" name="suka" value="1"> Roti
+	<input type="checkbox" name="suka" value="2"> Sayur
+	<input type="checkbox" name="suka" value="3"> Kamu
+	<br><br>
+	<label>Agama:</label>
+	<select name="agama">
+		<option value="">Pilih Agama</option>
+		<option value="1">Islam</option>
+	</select>
+	<br><br>
+	<label>Hobi:</label><br>
+	<textarea name="hobi" rows="5" cols="50"></textarea>
+	<br><br>
+	<button type="submit">Simpan</button>
+	<button type="reset">Reset</button>
+</form>
 </body>
 </html>
