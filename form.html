@@ -2,36 +2,142 @@
 <html>
 <head>
 	<title>Form</title>
+	<style type="text/css">
+		*{
+			box-sizing: border-box;
+		}
+		body{
+			background-color: #dddddd;
+			margin: 0;
+			font-family: "Calibri", sans-serif;
+    		font-size: 11pt;
+		}
+		.form-control{
+			width: 100%;
+			padding: 8px;
+			float: left;
+			margin-bottom: 15px;
+			margin-top: 10px;
+		}
+		.panel{
+			width: 50%;
+			background-color: #ffffff;
+			margin: 0 auto;
+			margin-top: 50px;
+			border-radius: 4px;
+		}
+		.panel .panel-heading{
+			padding: 5px 20px;
+			border-bottom: 1px solid #dddddd;
+			text-align: center;
+		}
+		.panel .panel-body{
+			padding: 20px;
+		}
+
+		.button-biru{
+			padding: 10px 20px;
+			background-color: blue;
+			color: #ffffff;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+		.button-merah{
+			padding: 10px 20px;
+			background-color: red;
+			color: #ffffff;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+	</style>
 </head>
 <body>
-<h1>Contoh Form</h1>
-<form method="post" action="form.php">
-	<label>Nama:</label>
-	<input type="text" name="nama" width="100">
-	<br><br>
-	<label>Email:</label>
-	<input type="text" name="email" width="100">
-	<br><br>
-	<label>Jenis Kelamin:</label>
-	<input type="radio" name="kelamin" value="L"> Pria
-	<input type="radio" name="kelamin" value="P"> Wanita
-	<br><br>
-	<label>Kesukaan:</label>
-	<input type="checkbox" name="suka" value="1"> Roti
-	<input type="checkbox" name="suka" value="2"> Sayur
-	<input type="checkbox" name="suka" value="3"> Kamu
-	<br><br>
-	<label>Agama:</label>
-	<select name="agama">
-		<option value="">Pilih Agama</option>
-		<option value="1">Islam</option>
-	</select>
-	<br><br>
-	<label>Hobi:</label><br>
-	<textarea name="hobi" rows="5" cols="50"></textarea>
-	<br><br>
-	<button type="submit">Simpan</button>
-	<button type="reset">Reset</button>
-</form>
+<div class="panel">
+	<div class="panel-heading">
+		<h1>Form Registrasi Penduduk</h1>
+	</div>
+	<div class="panel-body">
+		<form method="post" id="form" action="form.php">
+			<label>Nama:</label>
+			<input type="text" class="form-control" id="nama" name="nama" width="100">
+			<br><br>
+
+			<label>Email:</label>
+			<input type="text" class="form-control" name="email" id="email" width="100">
+			<br><br>
+
+			<label>Jenis Kelamin:</label>
+			<input type="radio" name="kelamin" id="kelamin" value="L"> Pria
+			<input type="radio" name="kelamin" id="kelamin" value="P"> Wanita
+			<br><br>
+
+			<label>Agama:</label>
+			<select name="agama" class="form-control agama" id="agama">
+				<option value="">Pilih Agama</option>
+				<option value="Islam">Islam</option>
+				<option value="Katolik">Katolik</option>
+				<option value="Kristen">Kristen</option>
+				<option value="Hindu">Hindu</option>
+				<option value="Budha">Budha</option>
+			</select>
+			<br><br>
+
+			<label>Kesukaan:</label>
+			<input type="radio" name="suka" id="suka" value="Roti"> Roti
+			<input type="radio" name="suka" id="suka" value="Sayur"> Sayur
+			<input type="radio" name="suka" id="suka" value="Kamu"> Kamu
+			<br><br>
+
+			<label>Hobi:</label><br>
+			<textarea name="hobi" class="form-control hobi" id="hobi" rows="5" cols="50"></textarea>
+			<br><br>
+
+			<button type="submit" class="button-biru">Simpan</button>
+			<button type="reset" class="button-merah">Reset</button>
+		</form>
+	</div>
+</div>
+
+<script>
+	document.querySelector('form').addEventListener('submit', function(e) {
+
+		e.preventDefault();
+		var nama = document.getElementById('nama');
+		var email = document.getElementById('email');
+		var kelamin = document.getElementById('kelamin');
+		var agama = document.getElementById('agama');
+		var suka = document.getElementById('suka');
+		var hobi = document.getElementById('hobi');
+
+		if(nama.value.trim() === ''){
+			alert("Nama tidak boleh kosong!"); return false;
+		}
+
+		if(email.value.trim() === ''){
+			alert("Email tidak boleh kosong!"); return false;
+		}
+
+		if(kelamin.checked === false){
+			alert("Jenis Kelamin tidak boleh kosong!"); return false;
+		}
+
+		if(agama.value === ''){
+			alert("Agama tidak boleh kosong!"); return false;
+		}
+
+		if(suka.checked === false){
+			alert("Kesukaan tidak boleh kosong!"); return false;
+		}
+
+		if(hobi.value.trim() === ''){
+			alert("Hobi tidak boleh kosong!"); return false;
+		}
+
+		this.submit()
+
+	})
+</script>
 </body>
 </html>
