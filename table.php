@@ -50,11 +50,13 @@
         <tbody>
             <?php
 			$file = __DIR__ . '/file.txt';
-			$lines = file($file); 
-			$size = sizeof($lines); 
-	  		$data = [];
-	  		for($i = 0; $i < $size; $i++):
-	  			$pecah = (explode("|", $lines[$i]));
+			if(file_exists($file)){
+				$lines = file($file); 
+				$size = sizeof($lines); 
+		  		$data = [];
+		  		for($i = 0; $i < $size; $i++):
+		  			$pecah = (explode("|", $lines[$i]));
+
 			?>
 			<tr>
 				<td class="text-center"><?= ($i+1); ?></td>
@@ -66,7 +68,8 @@
 				<td><?= $pecah[5]; ?></td>
             </tr>
 			<?php
-			endfor;
+				endfor;
+			}
 			?>
             
         </tbody>

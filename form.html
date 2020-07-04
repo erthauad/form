@@ -69,8 +69,8 @@
 			<br><br>
 
 			<label>Jenis Kelamin:</label>
-			<input type="radio" name="kelamin" id="kelamin" value="L"> Pria
-			<input type="radio" name="kelamin" id="kelamin" value="P"> Wanita
+			<input type="radio" name="kelamin" class="kelamin" value="L"> Pria
+			<input type="radio" name="kelamin" class="kelamin" value="P"> Wanita
 			<br><br>
 
 			<label>Agama:</label>
@@ -85,9 +85,9 @@
 			<br><br>
 
 			<label>Kesukaan:</label>
-			<input type="radio" name="suka" id="suka" value="Roti"> Roti
-			<input type="radio" name="suka" id="suka" value="Sayur"> Sayur
-			<input type="radio" name="suka" id="suka" value="Kamu"> Kamu
+			<input type="radio" name="suka" class="suka" value="Roti"> Roti
+			<input type="radio" name="suka" class="suka" value="Sayur"> Sayur
+			<input type="radio" name="suka" class="suka" value="Kamu"> Kamu
 			<br><br>
 
 			<label>Hobi:</label><br>
@@ -106,9 +106,9 @@
 		e.preventDefault();
 		var nama = document.getElementById('nama');
 		var email = document.getElementById('email');
-		var kelamin = document.getElementById('kelamin');
+		var kelamin = document.getElementsByClassName('kelamin');
 		var agama = document.getElementById('agama');
-		var suka = document.getElementById('suka');
+		var suka = document.getElementsByClassName('suka');
 		var hobi = document.getElementById('hobi');
 
 		if(nama.value.trim() === ''){
@@ -119,16 +119,18 @@
 			alert("Email tidak boleh kosong!"); return false;
 		}
 
-		if(kelamin.checked === false){
+		if(!kelamin[0].checked && !kelamin[1].checked){
 			alert("Jenis Kelamin tidak boleh kosong!"); return false;
+		
 		}
+
 
 		if(agama.value === ''){
 			alert("Agama tidak boleh kosong!"); return false;
 		}
 
-		if(suka.checked === false){
-			alert("Kesukaan tidak boleh kosong!"); return false;
+		if(!suka[0].checked && !suka[1].checked && !suka[2].checked){
+			alert("Kesukaan Kelamin tidak boleh kosong!"); return false;
 		}
 
 		if(hobi.value.trim() === ''){
